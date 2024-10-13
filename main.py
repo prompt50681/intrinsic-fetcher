@@ -64,6 +64,6 @@ def fetch_from_list(stock_symbols):
     print(f"Fetched {len(symbols_to_fetch)} symbols today. Remaining: {len(remaining_symbols) - len(symbols_to_fetch)}")
 
 if __name__ == "__main__":
-    stock_symbols = ['AAPL', 'GOOGL', 'MSFT', 'TSLA'] 
+    stock_symbols = ['AAPL', 'GOOGL', 'MSFT', 'TSLA', 'V', 'AMZN'] 
     
     fetch_from_list(stock_symbols)
