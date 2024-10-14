@@ -98,9 +98,17 @@ def merge_json_files(file_paths):
     return merged_data
 
 def merge_and_save_summary(symbol):
+    if not os.path.exists(SUMMARY_DIR):
+        os.makedirs(SUMMARY_DIR)
+
     annual_files = [os.path.join(DATA_DIR, 'INCOME_STATEMENT', f"{symbol}.json"),
                     os.path.join(DATA_DIR, 'BALANCE_SHEET', f"{symbol}.json"),
                     os.path.join(DATA_DIR, 'CASH_FLOW', f"{symbol}.json")]
+
+    missing_files = [file for file in annual_files if not os.path.exists(file)]
+    if missing_files:
+        print(f"Skipping summary generation for {symbol} due to missing files: {missing_files}")
+        return
 
     merged_data = merge_json_files(annual_files)
     summary_file_path = os.path.join(SUMMARY_DIR, f"{symbol}.json")

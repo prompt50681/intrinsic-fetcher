@@ -3,7 +3,7 @@ name: Fetch Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * *" # Runs daily at 10:00 UTC
+    - cron: "0 3 * * *" # Runs daily at 10:00 GMT+7
 
 jobs:
   renew:
